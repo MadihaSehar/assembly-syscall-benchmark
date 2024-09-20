@@ -1,7 +1,7 @@
 #!/bin/bash
 
 clear
-figlet "Salman Mallah"
+figlet "Madiha Sehar"
 echo "==============================="
 echo "Script Written by: Madiha Sehar 22BSCYS022"
 echo "This tool compares the execution times of 'int 0x80' and 'syscall'."
