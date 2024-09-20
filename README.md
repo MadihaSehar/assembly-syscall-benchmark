@@ -21,8 +21,7 @@ You can install it using:
 sudo apt install figlet
 How to Use
 Clone this repository:
-
-https://github.com/salmanmallah/assembly-syscall-benchmark.git
+https://github.com/MadihaSehar/assembly-syscall-benchmark.git
 Navigate into the directory:
 
 cd assembly-syscall-benchmark/
