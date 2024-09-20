@@ -6,7 +6,7 @@ section .text
 global _start
 
 _start:
-mov ecx, 500000
+mov ecx, 10
 ll:
 	mov ebx, ecx
 	mov rdi, 1
