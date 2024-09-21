@@ -1,6 +1,7 @@
 #!/bin/bash
 
 clear
+figlet "Madiha Sehar"
 echo "==============================="
 echo "Script Written by: Madiha Sehar 22BSCYS022"
 echo "This tool compares the execution times of 'int 0x80' and 'syscall'."
@@ -50,19 +51,8 @@ do
 done
 
 # Extract user times from result files
-user_time_program1=$(grep 'user' result_program1.txt | awk '{print $2}' | sed 's/[^0-9.]//g' | awk '{s+=$1} END {print s}')
-user_time_program2=$(grep 'user' result_program2.txt | awk '{print $2}' | sed 's/[^0-9.]//g' | awk '{s+=$1} END {print s}')
-
-# Check if the times are empty and handle the error
-if [ -z "$user_time_program1" ]; then
-    echo "Error: No user time found for ${program1%.asm}"
-    exit 1
-fi
-
-if [ -z "$user_time_program2" ]; then
-    echo "Error: No user time found for ${program2%.asm}"
-    exit 1
-fi
+user_time_program1=$(grep 'real' result_program1.txt | awk '{print $2}' | sed 's/[^0-9.]//g' | awk '{s+=$1} END {print s}')
+user_time_program2=$(grep 'real' result_program2.txt | awk '{print $2}' | sed 's/[^0-9.]//g' | awk '{s+=$1} END {print s}')
 
 # Calculate average user time
 avg_user_time_program1=$(echo "scale=3; $user_time_program1 / 10" | bc)
@@ -86,4 +76,3 @@ fi
 
 # Display percentage difference
 echo "$faster_program is $(echo "scale=2; $diff" | bc)% faster than $slower_program"
-
